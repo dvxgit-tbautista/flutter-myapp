@@ -103,12 +103,20 @@ class MyApp extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    height: 400,
-                    width: 100,
-                    color: Colors.green,
-                    child: const Text("placeholder"),
+                  mediaQueryExample(context),
+                  const SizedBox(
+                    height: 20,
                   ),
+                  Builder(builder: (context) {
+                    return Container(
+                      color: Colors.green,
+                      width: MediaQuery.of(context).size.width,
+                      height: 100,
+                      child: const Center(
+                        child: Text("Mediaquery Example"),
+                      ),
+                    );
+                  })
                 ],
               ),
             ),
@@ -117,5 +125,16 @@ class MyApp extends StatelessWidget {
               onPressed: () => debugPrint('clicked'),
               child: const Icon(Icons.add)),
         ));
+  }
+
+  Container mediaQueryExample(BuildContext context) {
+    return Container(
+      color: Colors.green,
+      width: MediaQuery.of(context).size.width / 2,
+      height: MediaQuery.of(context).size.height / 5,
+      child: const Center(
+        child: Text("Mediaquery Example"),
+      ),
+    );
   }
 }
