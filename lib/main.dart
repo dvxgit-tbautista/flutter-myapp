@@ -128,10 +128,11 @@ class MyApp extends StatelessWidget {
   }
 
   Container mediaQueryExample(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
       color: Colors.green,
-      width: MediaQuery.of(context).size.width / 2,
-      height: MediaQuery.of(context).size.height / 5,
+      width: size.width / 2,
+      height: size.height / 5,
       child: const Center(
         child: Text("Mediaquery Example"),
       ),
