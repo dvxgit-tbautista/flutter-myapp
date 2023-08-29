@@ -107,16 +107,26 @@ class MyApp extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Builder(builder: (context) {
-                    return Container(
-                      color: Colors.green,
-                      width: MediaQuery.of(context).size.width,
-                      height: 100,
-                      child: const Center(
-                        child: Text("Mediaquery Example"),
-                      ),
-                    );
-                  })
+                  Container(
+                    height: 300,
+                    width: 300,
+                    color: Colors.yellow,
+                    child: LayoutBuilder(builder: (context, constraints) {
+                      return Center(
+                        child: Container(
+                          color: Colors.lightBlue,
+                          width: constraints.maxWidth / 2,
+                          height: constraints.maxHeight / 2,
+                          child: const Center(
+                            child: Text("Layout Builder Example"),
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                 ],
               ),
             ),
