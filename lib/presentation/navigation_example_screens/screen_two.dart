@@ -22,8 +22,13 @@ class ScreenTwo extends StatelessWidget {
           child: const Text('Go To Screen One'),
           onPressed: () {
             // Use Navigator to push a new ScreenOne onto the stack
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: ((context) => const ScreenOne())));
+
+            // used to navigate to the "ScreenOne" screen in a Flutter application, but they differ in how they handle the existing routes on the navigation stack. The first line (commented out) uses pushReplacement, which replaces the current route, while the second line uses pushNamed, which adds a new route on top of the existing ones.
+
+            // Navigator.pushReplacement(context,
+            //     MaterialPageRoute(builder: ((context) => const ScreenOne())));
+
+            Navigator.pushNamed(context, '/screenOne');
           },
         ),
       ),

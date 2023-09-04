@@ -26,7 +26,11 @@ class ScreenOne extends StatelessWidget {
           // Define the action to be performed when the button is pressed.
           onPressed: () {
             // Use the Navigator to pop (close) the current screen and return to the previous screen.
-            Navigator.pop(context);
+
+            //  Navigator.popUntil is used to pop routes until a specific condition is met, while Navigator.pop is used to pop the current route and return to the previous route in the navigation stack in a Flutter application.
+
+            Navigator.popUntil(context, (route) => route.isFirst);
+            // Navigator.pop(context);
           },
         ),
       ),
