@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/presentation/components/custom_button.dart';
 import 'package:myapp/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:myapp/presentation/widget_examples/widgets/first_column_child.dart';
 import 'package:myapp/presentation/widget_examples/widgets/hello_world.dart';
@@ -8,7 +9,7 @@ import 'package:myapp/presentation/widget_examples/widgets/second_image.dart';
 import 'package:myapp/presentation/widget_examples/widgets/stack_first_image.dart';
 
 class WidgetExampleScreen extends StatelessWidget {
-  const WidgetExampleScreen({super.key});
+  const WidgetExampleScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,46 +17,72 @@ class WidgetExampleScreen extends StatelessWidget {
       appBar: AppBar(title: const Text("Flutter Basics")),
       body: Container(
         color: Colors.white,
-        // DO NOT USE EXPANDED IN A SCROLL VIEW VERTICALLY
-        child: const SingleChildScrollView(
-          // physics: const BouncingScrollPhysics(),
+        child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
-            // mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              RowExpandedExample(),
-              FirstColumnChild(),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              HelloWorld(),
-              SizedBox(
+              const RowExpandedExample(),
+              const SizedBox(
                 height: 20,
               ),
-              StackFirstImage(),
-              SizedBox(
+              const FirstColumnChild(),
+              const SizedBox(
                 height: 20,
               ),
-              SecondImage(),
-              SizedBox(
+              const HelloWorld(),
+              const SizedBox(
                 height: 20,
               ),
-              MediaQueryExample(),
-              SizedBox(
+              const StackFirstImage(),
+              const SizedBox(
                 height: 20,
               ),
-              LayoutBuilderExample(),
-              SizedBox(
+              const SecondImage(),
+              const SizedBox(
+                height: 40,
+              ),
+              const MediaQueryExample(),
+              const SizedBox(
+                height: 40,
+              ),
+              const LayoutBuilderExample(),
+              const SizedBox(
+                height: 40,
+              ),
+              const ButtonExamples(),
+              const SizedBox(
                 height: 20,
               ),
-              ButtonExamples()
+              CustomButton(
+                onTap: () {
+                  print("tapped");
+                },
+                icon: Icons.home,
+                iconColor: Colors.white,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomButtonGesture(
+                  onTap: () {
+                    print("CustomButtonGesture tapped");
+                  },
+                  text: "gesture button"),
+              const SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () => debugPrint('clicked'), child: const Icon(Icons.add)),
+        onPressed: () => debugPrint('clicked'),
+        child: const Icon(Icons.ac_unit),
+      ),
     );
   }
 }
