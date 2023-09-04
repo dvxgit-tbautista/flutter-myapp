@@ -18,75 +18,72 @@ class WidgetExampleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Flutter Basics")),
-      body: Container(
-        color: Colors.white,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              const RowExpandedExample(),
-              const SizedBox(
-                height: 20,
-              ),
-              const FirstColumnChild(),
-              const SizedBox(
-                height: 20,
-              ),
-              const HelloWorld(),
-              const SizedBox(
-                height: 20,
-              ),
-              const Person(
-                name: 'Joji',
-                age: '30',
-                country: 'USA',
-                job: 'loml',
-                pictureUrl: 'assets/Joji.jpg',
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const StackFirstImage(),
-              const SizedBox(
-                height: 20,
-              ),
-              const SecondImage(),
-              const SizedBox(
-                height: 40,
-              ),
-              const MediaQueryExample(),
-              const SizedBox(
-                height: 40,
-              ),
-              const LayoutBuilderExample(),
-              const SizedBox(
-                height: 40,
-              ),
-              const ButtonExamples(),
-              CustomButton(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            const RowExpandedExample(),
+            const SizedBox(
+              height: 20,
+            ),
+            const FirstColumnChild(),
+            const SizedBox(
+              height: 20,
+            ),
+            const HelloWorld(),
+            const SizedBox(
+              height: 20,
+            ),
+            const Person(
+              name: 'Joji',
+              age: '30',
+              country: 'USA',
+              job: 'loml',
+              pictureUrl: 'assets/Joji.jpg',
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const StackFirstImage(),
+            const SizedBox(
+              height: 20,
+            ),
+            const SecondImage(),
+            const SizedBox(
+              height: 40,
+            ),
+            const MediaQueryExample(),
+            const SizedBox(
+              height: 40,
+            ),
+            const LayoutBuilderExample(),
+            const SizedBox(
+              height: 40,
+            ),
+            const ButtonExamples(),
+            CustomButton(
+              onTap: () {
+                Navigator.pushNamed(context, '/screenOne');
+              },
+              icon: Icons.home,
+              iconColor: Colors.white,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            CustomButtonGesture(
                 onTap: () {
-                  Navigator.pushNamed(context, '/screenOne');
+                  Navigator.pushNamed(context, '/screenTwo');
                 },
-                icon: Icons.home,
-                iconColor: Colors.white,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              CustomButtonGesture(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/screenTwo');
-                  },
-                  text: 'gesture button'),
-              const SizedBox(
-                height: 20,
-              ),
-            ],
-          ),
+                text: 'gesture button'),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(

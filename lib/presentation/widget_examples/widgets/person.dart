@@ -23,7 +23,7 @@ class Person extends StatelessWidget {
     // Create a Container with a teal background and rounded corners.
     return Container(
       decoration: BoxDecoration(
-        color: Colors.tealAccent,
+        color: Theme.of(context).colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
