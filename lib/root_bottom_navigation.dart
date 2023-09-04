@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/presentation/counter/counter_screen.dart';
 import 'package:myapp/presentation/list/list_screen.dart';
+import 'package:myapp/presentation/theme_animation/theme_animation_screen.dart';
 import 'package:myapp/presentation/widget_examples/widget_examples_screen.dart';
 
-// This class represents the root widget for the bottom navigation.
 class RootBottomNavigation extends StatefulWidget {
   const RootBottomNavigation({Key? key}) : super(key: key);
 
@@ -12,37 +12,32 @@ class RootBottomNavigation extends StatefulWidget {
 }
 
 class _RootBottomNavigationState extends State<RootBottomNavigation> {
-  int _currentIndex = 0; // The index of the currently selected tab.
-
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // The main content area that displays the selected screen.
       body: IndexedStack(index: _currentIndex, children: const [
-        WidgetExampleScreen(), // Screen for widget examples.
-        CounterScreen(), // Screen for a counter.
-        ListScreen(), // Screen for displaying a list.
+        WidgetExampleScreen(),
+        CounterScreen(),
+        ListScreen(),
+        ThemeAnimationScreen(),
       ]),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index; // Update the selected tab index.
-          });
-        },
-        currentIndex: _currentIndex, // Set the currently selected tab.
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.star),
-              label: 'examples'), // Icon and label for the first tab.
-          BottomNavigationBarItem(
-              icon: Icon(Icons.add),
-              label: 'counter'), // Icon and label for the second tab.
-          BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              label: 'list'), // Icon and label for the third tab.
-        ],
-      ),
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          currentIndex: _currentIndex,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.star), label: 'examples'),
+            BottomNavigationBarItem(icon: Icon(Icons.add), label: 'counter'),
+            BottomNavigationBarItem(icon: Icon(Icons.list), label: 'list'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.color_lens), label: 'theme'),
+          ]),
     );
   }
 }
