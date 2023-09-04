@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:myapp/presentation/widget_examples/widgets/first_column_child.dart';
 import 'package:myapp/presentation/widget_examples/widgets/hello_world.dart';
 import 'package:myapp/presentation/widget_examples/widgets/layout_builder_example.dart';
@@ -48,6 +49,7 @@ class WidgetExampleScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
+              ButtonExamples()
             ],
           ),
         ),
