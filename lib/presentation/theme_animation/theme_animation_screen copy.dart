@@ -1,24 +1,25 @@
+// Import necessary packages and files
 import 'package:flutter/material.dart';
 import 'package:myapp/application/theme_service.dart';
-import 'package:myapp/presentation/theme_animation/widgets/moon.dart';
-import 'package:myapp/presentation/theme_animation/widgets/star.dart';
-import 'package:myapp/presentation/theme_animation/widgets/sun.dart';
 import 'package:provider/provider.dart';
 
+// Create a Flutter widget called ThemeAnimationScreen
 class ThemeAnimationScreen extends StatelessWidget {
   const ThemeAnimationScreen({Key? key}) : super(key: key);
 
+  // Build method to define the UI of the screen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Theme Animation'),
+        title: const Text('Theme Animation'), // Set the app bar title
       ),
       body: Consumer<ThemeService>(builder: ((context, themeService, child) {
         return Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(
+                horizontal: 20), // Add horizontal padding
             child: Container(
               height: 500,
               decoration: BoxDecoration(
@@ -31,7 +32,7 @@ class ThemeAnimationScreen extends StatelessWidget {
                         blurRadius: 10,
                         spreadRadius: 3)
                   ],
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(15), // Add border radius
                   gradient: LinearGradient(
                     colors: themeService.isDarkModeOn
                         ? const [
@@ -49,60 +50,6 @@ class ThemeAnimationScreen extends StatelessWidget {
                   )),
               child: Stack(
                 children: [
-                  Positioned(
-                    top: 70,
-                    right: 50,
-                    child: AnimatedOpacity(
-                        duration: const Duration(milliseconds: 200),
-                        opacity: themeService.isDarkModeOn ? 1 : 0,
-                        child: const Star()),
-                  ),
-                  Positioned(
-                    top: 150,
-                    left: 60,
-                    child: AnimatedOpacity(
-                        duration: const Duration(milliseconds: 200),
-                        opacity: themeService.isDarkModeOn ? 1 : 0,
-                        child: const Star()),
-                  ),
-                  Positioned(
-                    top: 40,
-                    left: 100,
-                    child: AnimatedOpacity(
-                        duration: const Duration(milliseconds: 200),
-                        opacity: themeService.isDarkModeOn ? 1 : 0,
-                        child: const Star()),
-                  ),
-                  Positioned(
-                    top: 50,
-                    left: 50,
-                    child: AnimatedOpacity(
-                        duration: const Duration(milliseconds: 200),
-                        opacity: themeService.isDarkModeOn ? 1 : 0,
-                        child: const Star()),
-                  ),
-                  Positioned(
-                    top: 100,
-                    right: 200,
-                    child: AnimatedOpacity(
-                        duration: const Duration(milliseconds: 200),
-                        opacity: themeService.isDarkModeOn ? 1 : 0,
-                        child: const Star()),
-                  ),
-                  AnimatedPositioned(
-                    duration: const Duration(milliseconds: 400),
-                    top: themeService.isDarkModeOn ? 100 : 130,
-                    right: themeService.isDarkModeOn ? 100 : -40,
-                    child: AnimatedOpacity(
-                        duration: const Duration(milliseconds: 300),
-                        opacity: themeService.isDarkModeOn ? 1 : 0,
-                        child: const Moon()),
-                  ),
-                  AnimatedPadding(
-                      duration: const Duration(milliseconds: 200),
-                      padding: EdgeInsets.only(
-                          top: themeService.isDarkModeOn ? 110 : 50),
-                      child: const Center(child: Sun())),
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: Container(
@@ -121,7 +68,7 @@ class ThemeAnimationScreen extends StatelessWidget {
                           Text(
                             themeService.isDarkModeOn
                                 ? 'To dark?'
-                                : 'To bright?',
+                                : 'To bright?', // Display text based on theme mode
                             style: const TextStyle(
                                 fontSize: 21, fontWeight: FontWeight.w600),
                             textAlign: TextAlign.center,
@@ -132,7 +79,7 @@ class ThemeAnimationScreen extends StatelessWidget {
                           Text(
                             themeService.isDarkModeOn
                                 ? 'let the sun rise'
-                                : 'let it be night',
+                                : 'let it be night', // Display text based on theme mode
                             style: const TextStyle(
                                 fontSize: 18, fontStyle: FontStyle.italic),
                             textAlign: TextAlign.center,
@@ -143,7 +90,8 @@ class ThemeAnimationScreen extends StatelessWidget {
                           Switch(
                               value: themeService.isDarkModeOn,
                               onChanged: (_) {
-                                themeService.toggleTheme();
+                                themeService
+                                    .toggleTheme(); // Toggle theme mode when the switch is changed
                               })
                         ],
                       ),
