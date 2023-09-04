@@ -4,6 +4,7 @@ import 'package:myapp/presentation/widget_examples/widgets/buttons_example.dart'
 import 'package:myapp/presentation/widget_examples/widgets/first_column_child.dart';
 import 'package:myapp/presentation/widget_examples/widgets/hello_world.dart';
 import 'package:myapp/presentation/widget_examples/widgets/layout_builder_example.dart';
+import 'package:myapp/presentation/widget_examples/widgets/person.dart';
 import 'package:myapp/presentation/widget_examples/widgets/row_expanded_example.dart';
 import 'package:myapp/presentation/widget_examples/widgets/second_image.dart';
 import 'package:myapp/presentation/widget_examples/widgets/stack_first_image.dart';
@@ -34,6 +35,16 @@ class WidgetExampleScreen extends StatelessWidget {
                 height: 20,
               ),
               const HelloWorld(),
+              const SizedBox(
+                height: 20,
+              ),
+              const Person(
+                name: 'Joji',
+                age: '30',
+                country: 'USA',
+                job: 'loml',
+                pictureUrl: 'assets/Joji.jpg',
+              ),
               const SizedBox(
                 height: 20,
               ),
